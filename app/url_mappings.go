@@ -6,9 +6,8 @@ import (
 )
 
 func mapUrls() {
-	router.GET("/ping", ping.Ping) // function Ping() not called but defined
+	router.GET("/ping", ping.Ping) // function not called but defined
 
 	router.GET("/users/:user_id", users.GetUser) // must add (c *gin.Context) in controllers
-	//router.GET("/users/search", controllers.SearchUser)
 	router.POST("/users", users.CreateUser)
 }
