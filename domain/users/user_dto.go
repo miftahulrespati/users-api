@@ -1,6 +1,7 @@
 package users
 
 import (
+	"fmt"
 	"net/mail"
 	"strings"
 
@@ -18,7 +19,7 @@ type User struct {
 	Email       string `json:"email"`
 	DateCreated string `json:"date_created"`
 	Status      string `json:"status"`
-	Password    string `json:"-"`
+	Password    string `json:"password"`
 }
 
 func (user *User) Validate() *errors.RestErr { // Validate method not function
@@ -32,6 +33,7 @@ func (user *User) Validate() *errors.RestErr { // Validate method not function
 
 	user.Password = strings.TrimSpace(user.Password)
 	if len(user.Password) < 8 {
+		fmt.Println(len(user.Password))
 		return errors.NewBadRequestError("invalid password, must at least 8 characters")
 	}
 
