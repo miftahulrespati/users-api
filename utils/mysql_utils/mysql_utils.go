@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"example.com/hello/github.com/miftahulrespati/bookstore_users-api/utils/errors"
+	"example.com/hello/github.com/miftahulrespati/users-api/utils/errors"
 	"github.com/go-sql-driver/mysql"
 )
 
@@ -23,7 +23,7 @@ func ParseError(err error) *errors.RestErr {
 
 	switch sqlErr.Number {
 	case 1062:
-		return errors.NewBadRequestError("invalid data")
+		return errors.NewBadRequestError("invalid data, email already exists")
 	}
 	fmt.Println(err)
 	return errors.NewInternalServerError("error processing request")

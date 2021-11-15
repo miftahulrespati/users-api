@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"example.com/hello/github.com/miftahulrespati/bookstore_users-api/domain/users"
-	"example.com/hello/github.com/miftahulrespati/bookstore_users-api/services"
-	"example.com/hello/github.com/miftahulrespati/bookstore_users-api/utils/errors"
+	"example.com/hello/github.com/miftahulrespati/users-api/domain/users"
+	"example.com/hello/github.com/miftahulrespati/users-api/services"
+	"example.com/hello/github.com/miftahulrespati/users-api/utils/errors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -33,7 +33,7 @@ func Create(c *gin.Context) { // gin.Context only used in controllers
 		//TODO: handle user creation error
 		return
 	}
-	c.JSON(http.StatusCreated, result)
+	c.JSON(http.StatusCreated, result.Marshall(c.GetHeader("X-Public") == "true"))
 
 }
 
@@ -50,7 +50,7 @@ func Get(c *gin.Context) {
 
 		return
 	}
-	c.JSON(http.StatusCreated, user)
+	c.JSON(http.StatusCreated, user.Marshall(c.GetHeader("X-Public") == "true"))
 }
 
 func Update(c *gin.Context) {
@@ -76,7 +76,7 @@ func Update(c *gin.Context) {
 		c.JSON(err.Status, err)
 		return
 	}
-	c.JSON(http.StatusOK, result)
+	c.JSON(http.StatusOK, result.Marshall(c.GetHeader("X-Public") == "true"))
 }
 
 func Delete(c *gin.Context) {
@@ -101,5 +101,11 @@ func Search(c *gin.Context) {
 		c.JSON(err.Status, err)
 		return
 	}
-	c.JSON(http.StatusOK, users)
+
+	result := make([]interface{}, len(users))
+	for index, user := range users {
+		result[index] = user.Marshall(c.GetHeader("X-Public") == "true")
+	}
+
+	c.JSON(http.StatusOK, result)
 }
