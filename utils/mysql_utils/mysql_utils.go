@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/errors"
 	"github.com/go-sql-driver/mysql"
+	"github.com/miftahulrespati/users-api/utils/errors"
 )
 
 const (

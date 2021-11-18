@@ -1,10 +1,10 @@
 package services
 
 import (
-	"example.com/hello/github.com/miftahulrespati/users-api/domain/users"
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/crypto_utils"
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/date_utils"
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/errors"
+	"github.com/miftahulrespati/users-api/domain/users"
+	"github.com/miftahulrespati/users-api/utils/crypto_utils"
+	"github.com/miftahulrespati/users-api/utils/date_utils"
+	"github.com/miftahulrespati/users-api/utils/errors"
 )
 
 func CreateUser(user users.User) (*users.User, *errors.RestErr) {

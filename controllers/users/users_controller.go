@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"example.com/hello/github.com/miftahulrespati/users-api/domain/users"
-	"example.com/hello/github.com/miftahulrespati/users-api/services"
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/errors"
 	"github.com/gin-gonic/gin"
+	"github.com/miftahulrespati/users-api/domain/users"
+	"github.com/miftahulrespati/users-api/services"
+	"github.com/miftahulrespati/users-api/utils/errors"
 )
 
 func getUserId(userIdParam string) (int64, *errors.RestErr) {

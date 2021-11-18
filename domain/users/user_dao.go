@@ -3,10 +3,10 @@ package users
 import (
 	"fmt"
 
-	"example.com/hello/github.com/miftahulrespati/users-api/datasources/mysql/users_db"
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/errors"
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/mysql_utils"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/miftahulrespati/users-api/datasources/mysql/users_db"
+	"github.com/miftahulrespati/users-api/utils/errors"
+	"github.com/miftahulrespati/users-api/utils/mysql_utils"
 )
 
 // dao is used to working with database

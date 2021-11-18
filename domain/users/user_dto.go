@@ -5,7 +5,7 @@ import (
 	"net/mail"
 	"strings"
 
-	"example.com/hello/github.com/miftahulrespati/users-api/utils/errors"
+	"github.com/miftahulrespati/users-api/utils/errors"
 )
 
 const (

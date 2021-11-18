@@ -1,8 +1,8 @@
 package app
 
 import (
-	"example.com/hello/github.com/miftahulrespati/users-api/controllers/ping"
-	"example.com/hello/github.com/miftahulrespati/users-api/controllers/users"
+	"github.com/miftahulrespati/users-api/controllers/ping"
+	"github.com/miftahulrespati/users-api/controllers/users"
 )
 
 func mapUrls() {
